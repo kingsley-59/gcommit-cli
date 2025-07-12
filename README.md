@@ -1,6 +1,6 @@
-# gcommit-cli
+# gcommit-ai
 
-[![npm version](https://img.shields.io/npm/v/gcommit-cli.svg)](https://www.npmjs.com/package/gcommit-cli)
+[![npm version](https://img.shields.io/npm/v/gcommit-ai.svg)](https://www.npmjs.com/package/gcommit-ai)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 AI-powered conventional commit message generator for your Git workflow.
@@ -26,7 +26,7 @@ npx gcommit --auto
 ## Installation
 
 ```bash
-npm i -g gcommit-cli
+npm i -g gcommit-ai
 ```
 
 ## Configuration

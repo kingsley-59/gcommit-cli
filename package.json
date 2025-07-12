@@ -5,7 +5,6 @@
   "bin": {
     "gcommit": "dist/index.js"
   },
-  "type": "module",
   "scripts": {
     "test": "jest --coverage",
     "build": "tsc",

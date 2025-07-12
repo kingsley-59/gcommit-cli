@@ -1,0 +1,103 @@
+You are a senior TypeScript engineer and AI developer. Your task is to build an AI-powered Git commit message generator CLI tool.
+
+Project Summary:
+
+* Name: gcommit-cli
+* Description: A command-line tool that reads your local Git changes and uses OpenAI's LLM to generate conventional commit messages based on best practices.
+
+Core Features:
+
+* Detect staged or unstaged changes using Git
+* Send diffs or file change summaries to OpenAI
+* Generate a concise, conventional commit message (e.g., feat: add login form validation)
+* Use GPT models for commit generation
+* Support configuration via .gcommitrc or environment variables
+* Cross-platform support: Mac, Windows, Linux
+* Optional auto-commit with the generated message
+
+Setup and Configuration:
+
+* On first use or installation, check for OpenAI API key
+* If not found, prompt user to input key using a command like: gcommit config
+* Store key in a secure config file or environment variable
+* Optionally allow users to create a config file like:
+
+{
+"openai\_api\_key": "sk-...",
+"model": "gpt-4",
+"language": "en",
+"auto\_commit": false
+}
+
+Commands:
+
+* gcommit            - Generate a commit message based on current Git changes
+* gcommit config     - Set up OpenAI API key
+* gcommit --help     - Show CLI usage guide
+* gcommit --version  - Show version information
+
+Folder Structure:
+gcommit-cli/
+├── src/
+│   ├── index.ts
+│   ├── gitUtils.ts
+│   ├── openaiService.ts
+│   ├── config.ts
+│   └── cli.ts
+├── .gitignore
+├── .gcommitrc
+├── package.json
+├── README.md
+└── LICENSE
+
+README.md should contain:
+
+* Tool name and badges (npm, license, downloads)
+* Description of what it does
+* Feature list
+* Demo usage or screenshot
+* Installation command: npm i -g gcommit-cli
+* Configuration steps (gcommit config)
+* Example usage commands
+* Contribution guide
+* License section
+* Acknowledgements (e.g., OpenAI, Git)
+
+License:
+
+* Use the MIT license with standard language and author information
+
+AI Prompting Logic:
+
+* When generating a message, send a prompt like:
+  "Generate a concise conventional commit message (max 1–2 lines) for the following git diff. Use present tense, imperative voice, and the conventional commit format (e.g., fix:, feat:, refactor:). Ignore boilerplate or whitespace-only changes. Git diff:\n\n\[DIFF\_HERE]"
+
+Development Environment:
+
+* Node.js (LTS version)
+* TypeScript
+* Commander (for CLI input parsing)
+* Dotenv (for environment variable loading)
+* Axios (for API requests)
+* Simple Git (for reading Git changes)
+
+Extensibility:
+
+* Plan for future features such as:
+
+  * Support for multiple languages
+  * Support for other LLM providers (Anthropic, Mistral)
+  * Commit message templates or presets
+  * VS Code extension or plugin
+
+Final Deliverables from the LLM:
+
+* Full TypeScript-based CLI tool
+* README.md with setup, usage, and configuration guide
+* .gitignore and sample config file
+* LICENSE file (MIT)
+* Modular, clean, and maintainable code
+* Input validation and error handling
+* Optional unit tests for key modules
+
+This prompt should be used with tools like GPT-4 or any advanced LLM that supports code generation, and should result in a professional, open-source, developer-friendly AI commit message CLI tool.

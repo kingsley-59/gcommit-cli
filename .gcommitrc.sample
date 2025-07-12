@@ -1,0 +1,6 @@
+{
+  "openai_api_key": "sk-...",
+  "model": "gpt-4o-mini",
+  "language": "en",
+  "auto_commit": false
+}

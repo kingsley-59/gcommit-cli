@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+# Build output
+dist/
+# Environment variables
+.env
+# Local config
+auth.json
+.gcommitrc
+coverage/
+
+.sonarlint
+.vscode

@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write        # allow creating branches
   pull-requests: write   # allow opening/updating PRs
+  issues: write           # for creating labels on that PR
 
 jobs:
   release:

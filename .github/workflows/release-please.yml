@@ -1,0 +1,19 @@
+# .github/workflows/release-please.yml
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          package-name: gcommit-ai
+          token: ${{ secrets.GITHUB_TOKEN }}

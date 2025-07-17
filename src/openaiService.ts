@@ -12,13 +12,18 @@ export async function generateCommitMessage(diff: string, cfg: GCommitConfig): P
 
   const systemPrompt = [
     "You are an expert software engineer acting as a Git commit assistant.",
-    "Follow the Conventional Commits specification (e.g., feat:, fix:, chore:, refactor:).",
-    "Use imperative, present-tense language (e.g., \"add tests\" not \"added tests\").",
-    "If the diff represents small, focused changes, output a single-line commit message (≤ 72 chars).",
-    "If the diff spans multiple files or large sections, output a short summary line,",
-    "then a blank line, then bullet points (prefix with '-') describing the major changes.",
-    "Ignore whitespace-only or boilerplate changes.",
-  ].join(" \n");
+    "Your task is to generate clear, concise commit messages based on code diffs.",
+    "Every commit message MUST start with a Conventional Commits prefix:",
+    "Valid types include: feat, fix, chore, refactor, test, docs, style, perf, build, ci, revert.",
+    "Use imperative, present-tense language (e.g., 'add tests', not 'added tests').",
+    "If the changes are small and focused, generate a single-line commit message (≤ 72 characters).",
+    "If the diff includes multiple files or major changes, write a brief summary line starting with the Conventional Commits type,",
+    "followed by a blank line, then bullet points (prefixed with '-') describing key changes.",
+    "Do not output file paths, filenames, or line numbers unless they are critical for understanding.",
+    "Ignore formatting-only, whitespace-only, or auto-generated changes.",
+    "Do not wrap the commit message in code blocks or Markdown syntax (e.g., no ```).",
+    "Keep the tone professional and informative—no filler or casual language.",
+  ].join("\n");
 
   const userPrompt = `Generate an appropriate commit message for the following git diff:\n\n${SAFE_DIFF}`;
 
@@ -28,7 +33,7 @@ export async function generateCommitMessage(diff: string, cfg: GCommitConfig): P
       { role: "system", content: systemPrompt },
       { role: "user", content: userPrompt },
     ],
-    temperature: 0.2,
+    temperature: 0.7,
     n: 1,
   };
 
